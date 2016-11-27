@@ -1,0 +1,130 @@
+body
+{
+  text-align:center;
+  background-color:grey;
+}
+a:nth-child(2)
+{
+  display:inline-block;
+  margin-top:20px;
+  margin-bottom:20px;
+  outline-style:none;
+  font-size:2em;
+  border:1px dashed darkblue;
+  background-color:white;
+  padding:5px 15px 5px 15px;
+  border-radius:10px;
+  text-decoration:none;
+}
+a:nth-child(2):hover
+{
+  background-color:darkblue;
+  color:White;
+}
+div:nth-child(4) div
+{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  cursor:default;
+  text-decoration:none;
+}
+div:nth-child(4) div span
+{
+  display:inline-block;
+  margin-right:10px;
+  outline-style:none;
+  border:1px dashed darkblue;
+  background-color:white;
+  padding:15px 10px 15px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  color:blue;
+}
+div:nth-child(4) div span:hover
+{
+  background-color:darkblue;
+  color:White;
+}
+div:nth-child(4)
+{
+  display:flex;
+  justify-content:center;
+}
+table
+{
+  display:inline-block;
+  border-collapse:collapse;
+  margin:5px;
+  border-radius:20px;
+}
+table tr:first-child td:first-child
+{
+  border-top-left-radius:20px;
+}
+
+table tr:first-child td:last-child
+{
+  border-top-right-radius:20px;
+}
+table tr:last-child td:first-child
+{
+  border-bottom-left-radius:20px;
+}
+
+table tr:last-child td:last-child
+{
+  border-bottom-right-radius:20px;
+}
+form
+{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  text-align:left;
+  width:700px;
+  margin:10px auto 0 auto;
+  border:1px dashed black;
+  padding:10px 10px 10px 25px;
+  background-color:white;
+  border-radius:10px;
+}
+form div:nth-child(-n+4)
+{
+  display:inline;
+  width:25%;
+}
+form div:nth-child(5)
+{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-right:10px;
+  height:70px;
+}
+form div:last-child
+{
+  text-align:center;
+  width:150px;
+  line-height:10px;
+  padding-top:5px;
+}
+form div:last-child label
+{
+  line-height:20px;
+}
+label
+{
+  line-height:33px;
+}
+input[type="text"]
+{
+  height:20px;
+  width:130px;
+}
+textarea
+{
+  resize:none;
+  width:300px;
+  height:70px;
+}
