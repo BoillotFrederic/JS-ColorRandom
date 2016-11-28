@@ -99,7 +99,7 @@ var color =
     for(var i = 0; i < tdElement.length; i++)
     tdElement[i].innerHTML = '';
 
-    this.lastText = [];
+    this.text = '';
   },
 
   // Numérique sinon rien
