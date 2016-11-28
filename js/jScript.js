@@ -1,7 +1,16 @@
-document.onkeypress = function(e)
+document.onkeydown = function(e)
 {
   // Touche enter
-  if (e.key == 'Enter') color.createTable();
+  if (e.key == 'Enter')
+  {
+    // Perte du focus
+    document.getElementsByTagName('a')[0].blur();
+    document.getElementsByTagName('textarea')[0].blur();
+    for (var i = 0; i < document.getElementsByTagName('input').length; i++)
+    document.getElementsByTagName('input')[i].blur();
+
+    color.createTable();
+  }
 
   // Touche del
   if (e.key == 'Backspace') color.textClear();
