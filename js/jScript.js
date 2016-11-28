@@ -1,3 +1,12 @@
+document.onkeypress = function(e)
+{
+  // Touche enter
+  if (e.key == 'Enter') color.createTable();
+
+  // Touche del
+  if (e.key == 'Backspace') color.textClear();
+}
+
 var color =
 {
   // Paramètres
