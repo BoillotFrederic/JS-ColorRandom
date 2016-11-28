@@ -1,7 +1,7 @@
 var color =
 {
-  // Hexadécimal
-  hex: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'],
+  // Paramètres
+  hex: '0123456789ABCDEF',
   preHex: ['AA3939', 'FFAAAA', 'D46A6A', '801515', '550000'],
   lastText: [],
 
@@ -28,7 +28,7 @@ var color =
   createTable: function()
   {
     document.getElementsByTagName('div')[7].children[0].style.display = 'flex';
-    var table = document.body.appendChild(document.createElement('table'));
+    var table = document.getElementsByTagName('div')[7].appendChild(document.createElement('table'));
     var width = document.getElementById('sizeX').value;
     var height = document.getElementById('sizeY').value;
     var nbLine = document.getElementById('nbLine').value;
@@ -40,11 +40,11 @@ var color =
     text = this.lastText.concat(text);
     this.lastText = text;
 
-    for (var y = 0, iChar = 0, tr; y <= nbLine; y++)
+    for (var y = 0, iChar = 0, tr; y < nbLine; y++)
     {
       tr = table.insertRow();
 
-      for (var x = 0, td; x <= nbCell; x++)
+      for (var x = 0, td; x < nbCell; x++)
       {
         // La cellule
         td = tr.insertCell();
@@ -72,7 +72,7 @@ var color =
     if (lastTable) lastTable.parentNode.removeChild(lastTable);
 
     // Création du nouveau tableau
-     document.getElementsByTagName('div')[7].appendChild(table);
+    document.getElementsByTagName('div')[7].appendChild(table);
   },
 
   // cellule au click
