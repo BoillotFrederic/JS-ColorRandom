@@ -3,7 +3,7 @@ var color =
   // Paramètres
   hex: '0123456789ABCDEF',
   preHex: ['AA3939', 'FFAAAA', 'D46A6A', '801515', '550000'],
-  lastText: [],
+  text: '',
 
   // Hexadécimal aléatoire
   hexRandom: function()
@@ -27,18 +27,22 @@ var color =
   // Création du tableau
   createTable: function()
   {
-    document.getElementsByTagName('div')[7].children[0].style.display = 'flex';
-    var table = document.getElementsByTagName('div')[7].appendChild(document.createElement('table'));
+    var divTable = document.getElementsByTagName('div')[7];
+    divTable.children[0].style.display = 'flex';
+    var table = divTable.appendChild(document.createElement('table'));
     var width = document.getElementById('sizeX').value;
     var height = document.getElementById('sizeY').value;
     var nbLine = document.getElementById('nbLine').value;
     var nbCell = document.getElementById('nbCell').value;
 
-    var text = document.getElementsByTagName('textarea')[0].value;
-    if (!document.getElementById('spaceY').checked) text = text.replace(/[ \n\r]+/, '');
-    text = text.split('');
-    text = this.lastText.concat(text);
-    this.lastText = text;
+    // Cellules en blanc au clic
+    table.onclick = this.cellClick;
+
+    // Le texte des cellules
+    if (document.getElementById('spaceY').checked)
+    this.text += document.getElementsByTagName('textarea')[0].value;
+    else
+    this.text += document.getElementsByTagName('textarea')[0].value.replace(/[ \n\r]+/, '');
 
     for (var y = 0, iChar = 0, tr; y < nbLine; y++)
     {
@@ -54,13 +58,10 @@ var color =
         td.style.width = width + 'px';
         td.style.height = height + 'px';
 
-        // cellule cliquable
-        td.onclick = function(){ color.cellClick(this); };
-
         // Lettre de la cellule
-        if (text[iChar])
+        if (this.text[iChar])
         {
-          td.innerHTML = text[iChar];
+          td.innerHTML = this.text[iChar];
           td.style.fontSize = this.textResize(width, height) + 'em';
           iChar++;
         }
@@ -72,13 +73,13 @@ var color =
     if (lastTable) lastTable.parentNode.removeChild(lastTable);
 
     // Création du nouveau tableau
-    document.getElementsByTagName('div')[7].appendChild(table);
+    divTable.appendChild(table);
   },
 
   // cellule au click
-  cellClick: function(obj)
+  cellClick: function(e)
   {
-    obj.style.backgroundColor = 'white';
+    e.target.style.backgroundColor = 'white';
   },
 
   // cellule au click
